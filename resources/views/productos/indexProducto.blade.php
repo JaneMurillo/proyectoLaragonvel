@@ -10,8 +10,8 @@
     <h1>Productos</h1>
     <ul>
     @foreach ($productos as $prod)
-        <li>{{ $prod->id }} - {{ $prod->nombre}} - {{ number_format($prod->costo, 2)}} </li>
-    @foreach
+        <li>{{ $prod->id }} - {{ $prod->nombre}} - {{ $prod->description}}- {{ number_format($prod->costo, 2)}} </li>
+    @endforeach
     </ul>
 </body>
 </html>

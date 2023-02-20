@@ -8,17 +8,24 @@
 </head>
 <body>
     <h1>Crear Productos</h1>
-    <form action="/producto/store" method="POST">
+    <form action="/producto" method="POST">
+        @csrf
 
         <label for="name">Nombre</label><br>
         <input type="text" name="nombre" id="nombre" required><br>
         @error('nombre')
-            <h5>{{ $message }}</h5>
+            <h4>{{ $message }}</h4>
         @enderror
         <br>
         <label for="descripcion">Descripción</label><br>
         <input type="text" name="codigo" id="codigo"><br>
         @error('descripcion')
+            <h4>{{ $message }}</h4>
+        @enderror
+        <br>
+        <label for="costo">Costo</label><br>
+        <input type="text" name="costo" id="costo"><br>
+        @error('costo')
             <h4>{{ $message }}</h4>
         @enderror
         <br>

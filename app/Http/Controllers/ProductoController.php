@@ -26,7 +26,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        return response (view('productos.createProducto'));
+        return view('productos.createProducto');
     }
 
     /**
@@ -43,7 +43,15 @@ class ProductoController extends Controller
             'description' => ['required', 'max:255'], 
             'costo' => ['numeric', 'min:1'],
         ]);
-        dd($request->all());
+        //dd($request->all());
+
+        $producto = new Producto();
+        $producto->nombre = $request->nombre;
+        $producto->description = $request->description;
+        $producto->costo = $request->costo;
+        $producto->save();
+
+        return redirect('/producto'); // Peticion tipo get
     }
 
     /**
