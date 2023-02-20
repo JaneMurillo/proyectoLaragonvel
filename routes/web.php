@@ -1,6 +1,10 @@
 <?php
 
+namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaginasController;
+use App\Http\Controllers\ProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,17 +21,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Route::get('producto', [ProductoController::class, 'index']);
 
-Route::get('canciones/{id?}', function ($id = null) {
-    $canciones = [];
-    $canciones[] = ['nombre' => 'Outside', 'artista' => 'Calvin Harris'];
-    $canciones[] = ['nombre' => 'Bad girls', 'artista' => 'MIA'];
+Route::get('canciones/{id?}', [PaginasController::class, 'canciones']);
+Route::get('contacto', [PaginasController::class, 'contacto']);
+Route::post('contacto', [PaginasController::class, 'postContacto']);
 
-    if(!is_null($id)) {
-        $cancion = $canciones[$id];
-    } else {
-        $cancion = null;
-    }
-
-    return view('canciones', compact('canciones', 'cancion'));
-});
+Route::resource('producto', ProductoController::class);
+//->except(['show', 'destroy']);
