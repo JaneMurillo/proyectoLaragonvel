@@ -60,9 +60,10 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Producto $producto)
     {
-        //
+        // Mostrar de un solo id
+        return view('productos/show-producto', compact('producto'));
     }
 
     /**
@@ -71,9 +72,10 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Producto $producto)
     {
-        //
+        // 
+        return view('productos/edit-producto', compact('producto'));
     }
 
     /**
@@ -83,9 +85,20 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Producto $producto)
     {
-        //
+        $request->validate([
+            'nombre' => 'required|string|max:255|min:3',  
+            'description' => ['required', 'max:255'], 
+            'costo' => ['numeric', 'min:1'],
+        ]);
+
+        $producto->nombre = $request->nombre;
+        $producto->description = $request->description;
+        $producto->costo = $request->costo;
+        $producto->save();
+
+        return redirect()->route('producto.index');
     }
 
     /**
@@ -94,8 +107,9 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Producto $producto)
     {
-        //
+        $producto->delete();
+        return redirect()->route('producto.index');
     }
 }
