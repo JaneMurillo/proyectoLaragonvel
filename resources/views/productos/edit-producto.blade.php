@@ -18,13 +18,13 @@
         @enderror
         <br>
         <label for="description">Descripción</label><br>
-        <input type="text" name="description" id="description" value="{{ old('nombre') ?? $producto->description }}"><br>
+        <input type="text" name="description" id="description" value="{{ old('description') ?? $producto->description }}"><br>
         @error('description')
             <h4>{{ $message }}</h4>
         @enderror
         <br>
         <label for="costo">Costo</label><br>
-        <input type="text" name="costo" id="costo" value="{{ old('nombre') ?? $producto->costo }}"><br>
+        <input type="text" name="costo" id="costo" value="{{ old('costo') ?? $producto->costo }}"><br>
         @error('costo')
             <h4>{{ $message }}</h4>
         @enderror
