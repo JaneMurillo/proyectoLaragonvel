@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaginasController;
 use App\Http\Controllers\ProductoController;
+use App\Models\Producto;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        $productos = Producto::all();
+        return view('dashboard', compact('productos'));
     })->name('dashboard');
 });

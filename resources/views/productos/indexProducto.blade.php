@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!--
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +8,8 @@
     <title>Document</title>
 </head>
 <body>
+    -->
+<x-app-layout>
     <h1>Productos</h1>
     <a href="/producto/create">Agregar Producto</a><br>
     <ul>
@@ -18,5 +21,9 @@
         </li>
     @endforeach
     </ul>
+</x-app-layout>
+
+<!--
 </body>
 </html>
+-->
