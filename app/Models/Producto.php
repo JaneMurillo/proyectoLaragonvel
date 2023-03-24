@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Producto extends Model
 {
     use HasFactory;
+    use SoftDeletes;
     // protected $table = ‘my_table’;
     public $timestamps = false;
     protected $table = 'productos';

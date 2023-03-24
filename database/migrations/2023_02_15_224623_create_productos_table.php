@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('costo', 8, 2)->nullable(); // digitos para punto decimal
             $table->integer('stock')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
