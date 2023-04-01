@@ -1,23 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Detalle producto</h1>
-    <h3> {{ $producto->nombre }} </h3>
-    <h4> {{ $producto->description }} </h4>
-    <h5> {{ $producto->costo }} </h5>
-
-    <p>
-        <form action="{{ route('producto.destroy', $producto) }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button type="submit">Eliminar</button>
-        </form>
-    </p>
-</body>
-</html>
+<x-dash-layout>
+    <x-slot name="title">Detalle del Producto</x-slot>
+    <div class="container-fluid px-2 px-md-4">
+        <div class="col-md-7">
+          <div class="card">
+            <div class="card-header pb-0 px-3">
+              <h6 class="mb-0">Informacion del Producto</h6>
+            </div>
+            <div class="card-header pb-0 px-3">
+                <h3> {{ $producto->nombre }} </h3>
+            </div>
+            <div class="card-header pb-0 px-3">
+                <h6 class="mb-0 ">Descripción</h6>
+                <p class="mb-0"> {{ $producto->description }} </p>
+            </div>
+            <div class="card-header pb-0 px-3">
+                <h6 class="mb-0 ">Costo</h6>
+                <p class="mb-0"> {{ $producto->costo }} </p>
+            </div>
+            <div class="card-header pb-0 px-3">
+                <p>
+                    <form action="{{ route('producto.destroy', $producto) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn bg-gradient-dark mb-0" type="submit">Eliminar</button>
+                    </form>
+                </p>
+            </div>
+          </div>
+        </div>
+    </div>
+</x-dash-layout>

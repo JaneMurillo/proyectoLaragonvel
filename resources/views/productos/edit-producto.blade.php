@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Editar Productos</h1>
+<x-dash-layout>
+    <x-slot name="title">Editar Productos</x-slot>
     <form action="{{ route('producto.update', $producto ) }}" method="POST">
         @csrf
         @method('PATCH')
@@ -32,5 +24,4 @@
         <input type="submit" value="Enviar">
 
     </form>
-</body>
-</html>
+</x-dash-layout>
