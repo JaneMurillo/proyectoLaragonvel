@@ -9,6 +9,6 @@ class DashLayout extends Component
 {
     public function render()
     {
-        return view('layouts.dash-layout');
+        return view('layouts.dash-layout'); 
     }
 }

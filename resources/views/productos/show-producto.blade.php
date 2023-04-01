@@ -12,7 +12,7 @@
             <div class="card-header pb-0 px-3">
                 <h6 class="mb-0 ">Descripción</h6>
                 <p class="mb-0"> {{ $producto->description }} </p>
-            </div>
+            </div> 
             <div class="card-header pb-0 px-3">
                 <h6 class="mb-0 ">Costo</h6>
                 <p class="mb-0"> {{ $producto->costo }} </p>

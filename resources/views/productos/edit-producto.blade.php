@@ -125,7 +125,7 @@
           <div class="card">
             <div class="card-header pb-0 px-3">
               <h6 class="mb-0">Detalle producto</h6>
-            </div>
+            </div> 
             <div class="card-header pb-0 px-3">
                 <h3> {{ $producto->nombre }} </h3>
             </div>

@@ -12,7 +12,7 @@
     <x-slot name="title">Crear Productos</x-slot>
     <form action="/producto" method="POST">
         @csrf
-
+ 
         <h3>Crear Productos</h3>
         <label for="name">Nombre</label><br>
         <input type="text" name="nombre" id="nombre" required value="{{ old('nombre')}}" ><br>

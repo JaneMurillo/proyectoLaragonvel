@@ -13,7 +13,7 @@
     <div class="col-3 text-end">
         <a class="btn bg-gradient-dark mb-0" href="/producto/create"><i class="material-icons text-sm">add</i>&nbsp;&nbsp;Agregar Producto</a>
     </div>
-    
+     
     <div class="container-fluid py-4">
         <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">

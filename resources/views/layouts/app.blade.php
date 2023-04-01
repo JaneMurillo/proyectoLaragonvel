@@ -209,7 +209,7 @@
                 <div class="chart">
                   <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
                 </div>
-              </div>
+              </div> 
             </div>
             <div class="card-body">
               <h6 class="mb-0 ">Website Views</h6>

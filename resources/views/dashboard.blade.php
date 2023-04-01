@@ -7,4 +7,4 @@
 
     @include('productos/indexProducto')
 
-</x-app-layout>
+</x-app-layout> 
