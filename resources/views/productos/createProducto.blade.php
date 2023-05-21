@@ -8,9 +8,9 @@
 </head>
 <body>
     <h1>Crear Productos</h1> -->
-<x-dash-layout>
+<x-prod-dash-layout>
     <x-slot name="title">Crear Productos</x-slot>
-    <form action="/producto" method="POST">
+    <form action="/producto" method="POST"  enctype="multipart/form-data">
         @csrf
  
         <h3>Crear Productos</h3>
@@ -32,9 +32,19 @@
             <h4>{{ $message }}</h4>
         @enderror
         <br>
-        <input type="submit" value="Enviar">
+            <label>Selecciona archivo</label>
+            <input type="file" name="archivo" id="archivo">
+        </div>
+        <br>
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">
+            <i class="mdi mdi-content-save-all"></i>
+                Guardar
+            </button>
+        </div>
+
 
     </form>
-</x-dash-layout>
+</x-prod-dash-layout>
 <!-- </body>
 </html> -->

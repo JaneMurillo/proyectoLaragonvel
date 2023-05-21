@@ -13,5 +13,15 @@ class Producto extends Model
     // protected $table = ‘my_table’;
     public $timestamps = false;
     protected $table = 'productos';
+    
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    
+
+    public function autors(){
+        return $this->belongsToMany(Autor::class)->withPivot(['date']);
+    }
 }
 

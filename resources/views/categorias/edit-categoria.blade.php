@@ -43,7 +43,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary" href="../../producto">
+          <a class="nav-link text-white" href="../../producto">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -51,7 +51,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="../../categoria">
+          <a class="nav-link text-white active bg-gradient-primary" href="../../categoria">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -139,25 +139,19 @@
         <div class="container-fluid px-2 px-md-4">
         <div class="col-md-7">
           <div class="card">
-          <h2>Editar Productos</h2>
-          <form action="{{ route('producto.update', $producto ) }}" method="POST">
+          <h1>Editar Categoria</h1>
+          <form action="{{ route('categoria.update', $categoria ) }}" method="POST">
               @csrf
               @method('PATCH')
               <label for="name">Nombre</label><br>
-              <input type="text" name="nombre" id="nombre" value="{{ old('nombre') ?? $producto->nombre }}"><br>
+              <input type="text" name="nombre" id="nombre" value="{{ old('nombre') ?? $categoria->nombre }}"><br>
               @error('nombre')
                   <h4>{{ $message }}</h4>
               @enderror
               <br>
               <label for="description">Descripción</label><br>
-              <input type="text" name="description" id="description" value="{{ old('nombre') ?? $producto->description }}"><br>
+              <input type="text" name="description" id="description" value="{{ old('nombre') ?? $categoria->description }}"><br>
               @error('description')
-                  <h4>{{ $message }}</h4>
-              @enderror
-              <br>
-              <label for="costo">Costo</label><br>
-              <input type="text" name="costo" id="costo" value="{{ old('nombre') ?? $producto->costo }}"><br>
-              @error('costo')
                   <h4>{{ $message }}</h4>
               @enderror
               <br>

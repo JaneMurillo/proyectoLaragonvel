@@ -13,15 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('productos', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre');
-            $table->text('description');
-            $table->decimal('costo', 8, 2)->nullable(); // digitos para punto decimal
-            $table->integer('stock')->default(0);
-            $table->foreignId('user_id')->constrained();
+        Schema::create('autor_producto', function (Blueprint $table) {
+            // $table->id();
+            // $table->timestamps();
+            $table->foreignId('autor_id')->constrained()->OnDelete('cascade'); // Borras al autor, borra la referencia en esa tabla
+            $table->foreignId('producto_id')->constrained()->OnDelete('cascade');
+            $table->timestamp('date');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('productos');
+        Schema::dropIfExists('autor_producto');
     }
 };

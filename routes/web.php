@@ -28,7 +28,10 @@ Route::get('canciones/{id?}', [PaginasController::class, 'canciones']);
 Route::get('contacto', [PaginasController::class, 'contacto']);
 Route::post('contacto', [PaginasController::class, 'postContacto']);
 
-Route::resource('producto', ProductoController::class);
+Route::resource('producto', ProductoController::class)->middleware(['can:allow-login', 'verified']);
+Route::resource('archivo', ArchivoController::class);
+Route::resource('categoria', CategoriaController::class,['parameters' =>['categoria' => 'categoria']])->middleware(['auth', 'verified']);
+Route::resource('autor', AutorController::class)->middleware(['auth', 'verified']);
 //->except(['show', 'destroy']);
 Route::middleware([ 
     'auth:sanctum',
@@ -40,3 +43,9 @@ Route::middleware([
         return view('dashboard', compact('productos'));
     })->name('dashboard');
 });
+
+Route::get('archivo/descarga/{archivo}',
+    [ArchivoController::class, 'descargar'])
+    ->name('archivo.store');
+
+Route::resource('archivo', ArchivoController::class);
