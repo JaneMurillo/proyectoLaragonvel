@@ -153,6 +153,14 @@ class ProductoController extends Controller
         return redirect()->route('producto.index');
     }
 
+    
+    public function pdf()
+    {
+        $productos = Producto::paginate();
+
+        return view('producto', compact('productos'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -167,6 +175,7 @@ class ProductoController extends Controller
 
         Storage::disk('public')->delete($path);
 
+        $archivo->delete();
         $producto->delete();
         notyf()
             ->position('x', 'center')

@@ -22,8 +22,8 @@ class Autor extends Model
     protected function nombre(): Attribute
     {
         return Attribute::make(
-            get: fn (string $value) => ucfirst($value),
-            set: fn (string $value) => ucfirst($value),
+            get: fn (string $value) => ucfirst($value), // Accesor
+            set: fn (string $value) => ucfirst($value), // Mutator
         );
     }
 }
